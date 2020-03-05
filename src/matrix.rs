@@ -1,6 +1,6 @@
 use std::ops::Deref;
 
-/// A generic matrix struct 
+/// A generic matrix struct
 ///
 /// keeps num of rows and cols and saves data in a 1 dim vector
 #[derive(Debug, Clone, PartialEq, Eq, PartialOrd)]
@@ -11,10 +11,9 @@ pub struct Matrix<T> {
 }
 
 impl<T> Matrix<T> {
-
     /// Allocates space for matrix with T's default value
     ///
-    /// # Arguments 
+    /// # Arguments
     ///
     /// * `rows` - num of rows
     /// * `cols` - num of cols
@@ -37,9 +36,9 @@ impl<T> Matrix<T> {
 
     /// Creates a matrix instance from 2 dim vectors
     ///
-    /// # Arguments 
+    /// # Arguments
     ///
-    /// * `data` - two dimensional array of type T with data 
+    /// * `data` - two dimensional array of type T with data
     ///
     /// # Example
     ///
@@ -63,7 +62,7 @@ impl<T> Matrix<T> {
         }
     }
 
-    /// Get number of cols 
+    /// Get number of cols
     ///
     /// # Example
     ///
@@ -74,7 +73,7 @@ impl<T> Matrix<T> {
         self.cols
     }
 
-    /// Get number of rows 
+    /// Get number of rows
     ///
     /// # Example
     ///
@@ -85,9 +84,9 @@ impl<T> Matrix<T> {
         self.rows
     }
 
-    /// Get a given coordinate 
+    /// Get a given coordinate
     ///
-    /// Returns an option type 
+    /// Returns an option type
     ///
     /// # Arguments
     ///
@@ -106,7 +105,7 @@ impl<T> Matrix<T> {
         }
     }
 
-    /// Get an entire row 
+    /// Get an entire row
     ///
     /// Returns iterator of references
     /// if value needs to be saved, .unwrap().cloned() is needed
@@ -148,7 +147,7 @@ impl<T> Matrix<T> {
         }
     }
 
-    /// Creates instance of transposed matrix 
+    /// Creates instance of transposed matrix
     ///
     /// # Example
     ///
@@ -175,7 +174,6 @@ impl<T> Matrix<T> {
     }
 }
 
-
 impl<T> Deref for Matrix<T> {
     type Target = Vec<T>;
 
@@ -183,7 +181,6 @@ impl<T> Deref for Matrix<T> {
         &self.data
     }
 }
-
 
 #[cfg(test)]
 mod tests;
