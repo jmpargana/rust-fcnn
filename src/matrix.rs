@@ -1,5 +1,7 @@
 use std::ops::Deref;
 
+mod ops;
+
 /// A generic matrix struct
 ///
 /// keeps num of rows and cols and saves data in a 1 dim vector

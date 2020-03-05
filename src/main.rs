@@ -21,11 +21,12 @@ fn main() {
         );
     }
 
-    let mat2 = vec![vec![1, 2, 3], vec![1, 2, 3]];
+    let mat2 = vec![vec![1.0, 2.0, 3.0], vec![1.0, 2.0, 3.0]];
 
     let mat = Matrix::from(mat2);
 
     println!("{:?}", mat);
+    println!("{:?}", mat * matrix);
     println!("{:?}", transposed);
     println!("Hello, world!");
 }

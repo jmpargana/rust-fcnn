@@ -5,10 +5,13 @@ use std::ops::{
     Mul,
     Sub,
     SubAssign,
-}
+};
 
 
-impl<T> Mul<Matrix<T>> for Matrix<T> {
+
+impl<T> Mul<Matrix<T>> for Matrix<T> 
+    where T: Mul<Output = T> + AddAssign + Copy,
+{
     type Output = Matrix<T>;
 
     /// Std Ops Multiplication implementation for Matrix struct
@@ -41,9 +44,14 @@ impl<T> Mul<Matrix<T>> for Matrix<T> {
 
                 for row in 0..self.rows {
                     for col in 0..rhs.cols {
-                        data.push(self.get_row(row).unwrap()
-                            .zip(rhs.get_col(col).unwrap())
-                            .map(|(a, b)| *a * *y).sum());
+                        let mut iter = self.get_row(row).unwrap()
+                            .zip(rhs.get_col(col).unwrap());
+    
+                        let (x, y) = iter.next().unwrap();
+                        data.push(iter.fold(*x * *y, |mut acc, (a, b)| {
+                            acc += *a * *b;
+                            acc
+                        }));
                     }
                 }
                 data
