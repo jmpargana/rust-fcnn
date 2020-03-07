@@ -1,6 +1,8 @@
+use std::marker::{Send, Sync};
 use std::ops::Deref;
 
 mod ops;
+mod iter;
 
 /// A generic matrix struct
 ///
@@ -27,7 +29,7 @@ impl<T> Matrix<T> {
     /// ```
     pub fn new(rows: usize, cols: usize) -> Matrix<T>
     where
-        T: Clone + Default + Copy,
+        T: Clone + Default + Copy + Send + Sync,
     {
         Matrix {
             rows,
