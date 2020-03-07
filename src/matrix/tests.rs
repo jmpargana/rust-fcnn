@@ -59,3 +59,12 @@ fn check_trans() {
     assert_eq!(mat.transpose(), mat2);
     assert_eq!(mat2.transpose(), mat);
 }
+
+
+#[test]
+fn check_addition() {
+    let mat1 = Matrix::from(vec![vec![1, 2, 3]]);
+    let mat2 = mat1.clone();
+
+    assert_eq!(mat1 + mat2, Matrix::from(vec![vec![2, 4, 6]]));
+}
