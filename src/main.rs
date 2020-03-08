@@ -1,9 +1,13 @@
+mod layer;
 mod matrix;
 
+use layer::Layer;
 use matrix::Matrix;
 
 // Just not to get warnings for now
 fn main() {
+    let layer = Layer::new(4, 4, "relu");
+
     let matrix: Matrix<f64> = Matrix::new(10, 10);
     assert!(matrix.rows() == 10 && matrix.cols() == 10);
 
@@ -27,7 +31,6 @@ fn main() {
     let mat = Matrix::from(mat2);
 
     println!("{:?}", mat);
-    println!("{:?}", mat * Matrix::from(mat1));
+    println!("{:?}", Matrix::from(mat1).transpose() * mat);
     println!("{:?}", transposed);
-    println!("Hello, world!");
 }

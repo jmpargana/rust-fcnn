@@ -1,8 +1,8 @@
 use std::marker::{Send, Sync};
 use std::ops::Deref;
 
-mod ops;
 mod iter;
+mod ops;
 
 /// A generic matrix struct
 ///

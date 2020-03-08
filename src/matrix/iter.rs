@@ -1,6 +1,5 @@
 use super::Matrix;
 
-
 impl<T> IntoIterator for Matrix<T> {
     type Item = T;
     type IntoIter = ::std::vec::IntoIter<T>;
@@ -27,4 +26,3 @@ impl<'a, T> IntoIterator for &'a mut Matrix<T> {
         self.data.iter_mut()
     }
 }
-

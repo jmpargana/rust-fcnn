@@ -87,12 +87,7 @@ macro_rules! impl_op {
     (SubAssign) => { impl_op_assign_basic!(SubAssign, sub_assign, -=); };
 }
 
-
 impl_op!(Add, AddAssign, Sub, SubAssign);
-
-
-
-
 
 impl<T> Mul<Matrix<T>> for Matrix<T>
 where

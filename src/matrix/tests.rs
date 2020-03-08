@@ -60,7 +60,6 @@ fn check_trans() {
     assert_eq!(mat2.transpose(), mat);
 }
 
-
 #[test]
 fn check_addition() {
     let mat1 = Matrix::from(vec![vec![1, 2, 3]]);
