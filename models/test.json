@@ -1,0 +1,24 @@
+// Example of json configuration file for training
+{
+    // automatically create training and validation datasets from folder
+    "dataset_folder": "foldername",
+    "dataset_reader": "file.[py/rs]",
+
+    // only one activation function for all hidden layers
+    "layers": {
+        "input_size": 100,
+        "hidden": {
+            "sizes": [200, 300, 100],
+            "activation": "relu"
+        },
+        "last": {
+            // output size needs to match parsed values from dataset
+            "size": 10,
+            "activation": "softmax"
+        }
+    },
+
+    "batch_size": 30,
+    "epoch_size": 100,
+    "epochs": 3
+}
