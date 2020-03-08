@@ -6,7 +6,7 @@ use matrix::Matrix;
 
 // Just not to get warnings for now
 fn main() {
-    let layer = Layer::new(4, 4, "relu");
+    let layer = Layer::new(4, 4, "relu".to_string());
 
     let matrix: Matrix<f64> = Matrix::new(10, 10);
     assert!(matrix.rows() == 10 && matrix.cols() == 10);

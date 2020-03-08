@@ -52,7 +52,7 @@ impl Layer {
     /// # Example
     ///
     /// ```
-    /// let layer = Layer::new(10, 20, "relu");
+    /// let layer = Layer::new(10, 20, "relu".to_string());
     /// ```
     ///
     /// # Panics
@@ -61,12 +61,12 @@ impl Layer {
     pub fn new(in_size: usize, out_size: usize, activation: String) -> Layer {
         assert!(ACT_FUNCTIONS.contains(&&activation[..]));
 
-        let rng = rand::thread_rng();
+        let mut rng = rand::thread_rng();
 
         let mut weights = Array2::zeros((in_size, out_size));
 
-        for (i, mut row) in weights.axis_iter_mut(Axis(0)).enumerate() {
-            row.fill(rng.gen_range(0.0, 1.0));
+        for mut row in weights.axis_iter_mut(Axis(0)) {
+            row.fill(rng.gen_range(0., 1.));
         }
 
         Layer {
